@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 urlpatterns = [
@@ -23,5 +23,6 @@ urlpatterns = [
     path('func2', views.func2, name='func2'),
     path('admin/', admin.site.urls),
     path('renderHtml/',views.renderIndex, name='renderHtml'),
-    path('rendNestHtml/',views.rendNestHtml, name='renderNestHtml')
+    path('rendNestHtml/',views.rendNestHtml, name='renderNestHtml'),
+    path('chai/',include('chai.urls')),
 ]
