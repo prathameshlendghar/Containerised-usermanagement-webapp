@@ -22,4 +22,6 @@ urlpatterns = [
     path('', views.func1, name='func1'),
     path('func2', views.func2, name='func2'),
     path('admin/', admin.site.urls),
+    path('renderHtml/',views.renderIndex, name='renderHtml'),
+    path('rendNestHtml/',views.rendNestHtml, name='renderNestHtml')
 ]
