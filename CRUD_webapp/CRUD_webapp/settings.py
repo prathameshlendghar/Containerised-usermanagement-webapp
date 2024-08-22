@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-i!ybap)&uhbk)hm8ia&c=w5nyfbb&32+x%bt4u-=k&7^!a0m$3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'employee-records-management',
+    'employee_records_management',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    ]
 
 ROOT_URLCONF = 'CRUD_webapp.urls'
 
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'CRUD_webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'crud_app_db',
+        'USER': 'prathamesh',
+        'PASSWORD': 'Pratham',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
