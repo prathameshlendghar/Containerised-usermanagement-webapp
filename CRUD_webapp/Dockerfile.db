@@ -1,0 +1,7 @@
+FROM alpine
+
+WORKDIR /Database
+
+RUN apk add postgresql
+
+

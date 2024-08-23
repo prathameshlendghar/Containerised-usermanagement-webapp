@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{employee.id}}">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Id:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="eid" id="id_eid" required maxlength="20" value="{{ employee.id }}"/>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Name:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="ename" id="id_ename" required maxlength="100" value="{{ employee.first_name }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Name:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="ename" id="id_ename" required maxlength="100" value="{{ employee.last_name }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Email:</label>  
+    <div class="col-sm-4">  
+        <input type="email" name="email" id="id_email" required maxlength="254" value="{{ employee.email }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee age:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="age" id="id_age" required maxlength="15" value="{{ employee.age }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee gender:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="gender" id="gender" required maxlength="100" value="{{ employee.gender }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Phone number:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="phone_number" id="id_ename" required maxlength="100" value="{{ employee.phone_number }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Employee Position:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="position" id="id_ename" required maxlength="100" value="{{ employee.position }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-success">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>Edit Employee</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Employee</button>
+    </form>
+    <br>
+    <a href="{% url 'show' %}">Back to Employee List</a>
+</body>
+</html>

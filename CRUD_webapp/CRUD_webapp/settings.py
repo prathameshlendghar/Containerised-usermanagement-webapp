@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+
+import os
+
+DATABASE_NAME = os.getenv('DATABASE_NAME', 'crud_app_db')
+DATABASE_USER = os.getenv('DATABASE_USER', 'prathamesh')
+DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD', 'Pratham')
+DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
+DATABASE_PORT = os.getenv('DATABASE_PORT', '5432')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -55,7 +64,7 @@ ROOT_URLCONF = 'CRUD_webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,11 +86,11 @@ WSGI_APPLICATION = 'CRUD_webapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crud_app_db',
-        'USER': 'prathamesh',
-        'PASSWORD': 'Pratham',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_HOST,
+        'PORT': DATABASE_PORT,
     }
 }
 
@@ -120,7 +129,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
