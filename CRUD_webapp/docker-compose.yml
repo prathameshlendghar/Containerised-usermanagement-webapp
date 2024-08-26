@@ -1,0 +1,64 @@
+# version: '3'
+
+# services:
+#   web:
+#     build:
+#       context: .
+#     ports:
+#       - "8003:8000"
+#     command: ["sh","RunScript.sh"]
+#     # volumes:
+#     #   - .:/app
+#     env_file:
+#       - .env
+#     networks:
+#       - my_net
+#     # depends_on:
+#     #   - postgres_db
+# networks:
+#   my_net:
+# #   postgres_db:
+# #     image: postgres
+# #     volumes:
+# #       - postgres_data:/var/lib/postgresql/data
+# #     environment:
+# #       - POSTGRES_DB=${SQL_NAME}
+# #       - POSTGRES_USER=${SQL_USER}
+# #       - POSTGRES_PASSWORD=${SQL_PASSWORD}
+
+# # volumes:
+# #   postgres_data:
+
+
+
+version: '3.8'
+
+services:
+  postgresql_db:
+    image: postgres:16
+    container_name: postgresql_db
+    environment:
+      POSTGRES_USER: prathamesh
+      POSTGRES_PASSWORD: Pratham
+      POSTGRES_DB: crud_app_db
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  web_app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: web_app
+    env_file:
+      - .env
+    ports:
+      - "8004:8000"
+    command: ["sh","RunScript.sh"]
+    depends_on:
+      - postgresql_db
+
+
+volumes:
+  postgres_data:

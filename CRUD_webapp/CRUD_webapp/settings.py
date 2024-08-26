@@ -15,12 +15,6 @@ from pathlib import Path
 
 import os
 
-DATABASE_NAME = os.getenv('DATABASE_NAME', 'crud_app_db')
-DATABASE_USER = os.getenv('DATABASE_USER', 'prathamesh')
-DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD', 'Pratham')
-DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
-DATABASE_PORT = os.getenv('DATABASE_PORT', '5432')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,7 +28,7 @@ SECRET_KEY = 'django-insecure-i!ybap)&uhbk)hm8ia&c=w5nyfbb&32+x%bt4u-=k&7^!a0m$3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -86,11 +80,11 @@ WSGI_APPLICATION = 'CRUD_webapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DATABASE_NAME,
-        'USER': DATABASE_USER,
-        'PASSWORD': DATABASE_PASSWORD,
-        'HOST': DATABASE_HOST,
-        'PORT': DATABASE_PORT,
+        'NAME': os.environ.get("SQL_NAME"),
+        'USER': os.environ.get("SQL_USER"),
+        'PASSWORD': os.environ.get("SQL_PASSWORD"),
+        'HOST': os.environ.get("HOST"),
+        'PORT': os.environ.get("PORT"),
     }
 }
 

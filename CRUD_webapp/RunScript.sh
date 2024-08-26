@@ -1,5 +1,8 @@
 #!/bin/bash
 
 source .venv/bin/activate
-echo "HEllo\n"
-python manage.py runserver
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py runserver 0.0.0.0:8000
